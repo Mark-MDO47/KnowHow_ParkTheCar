@@ -33,30 +33,30 @@
 // uses Ultrasonic Module HC-SR04 Distance Measuring Transducer Sensor
 //   example: http://www.ebay.com/itm/Ultrasonic-Module-HC-SR04-Distance-Measuring-Transducer-Sensor-for-Arduino-FO-/291548991993?hash=item43e1ac91f9:g:xmYAAOSwZd1VaXBO
 //
-// uses Uxcell 50K-ohm Trimmer Potentiometer. I used the 3386P top-adjustment version
+// uses Uxcell 50K-ohm Trimmer Potentiometer. I used the 3386P-package top-adjustment version
 //   example: https://smile.amazon.com/gp/product/B00G9JSCUQ/ref=oh_aui_detailpage_o02_s00?ie=UTF8&psc=1
 //
 // connections:
 // 
 // Nano pin 5V      LEDstick VCC
 // Nano pin GND     LEDstick GND
-// Nano pin 3       LEDstick DIN
+// Nano pin D-3     LEDstick DIN
 //
-// Nana pin 5V      SR04 VCC
+// Nano pin 5V      SR04 VCC
 // Nano pin GND     SR04 GND
 // Nano pin D-13    SR04 Trig
 // Nano pin D-12    SR04 Echo
 //
-// Nana pin 5V      Pot VCC (one side)
+// Nano pin 5V      Pot VCC (one side)
 // Nano pin AREF    Pot same pin as above
 // Nano pin GND     Pot GND (other side)
-// Nano pin A-0     Pot middle
+// Nano pin A-1     Pot middle
 
 // Recommendations
-//    Before connecting the WS2812 to a power source, connect a big capacitor from power to ground. A cap between 100µF and 1000µF should be good. Try to place this cap as close to your WS2812 as possible.
+//    Before connecting the WS2812 to a power source, connect a big capacitor from power to ground. A cap between 100microF and 1000microF should be good. Try to place this cap as close to your WS2812 as possible.
 //    Electrolytic Decoupling Capacitors 
 //
-//    Placing a small-ish resistor between your Arduino’s data output and the WS2812’s data input will help protect the data pin. A resistor between 220 and 470 O should do nicely. Try to place the resistor as close to the WS2812 as possible.
+//    Placing a small-ish resistor between your Arduino's data output and the WS2812's data input will help protect the data pin. A resistor between 220 and 470 O should do nicely. Try to place the resistor as close to the WS2812 as possible.
 //
 //    Keep Wires Short!
 
@@ -66,19 +66,22 @@
 // We'll be using Digital Data Pin #3 to control the WS2812 LEDs
 #define LED_DATA_PIN 3
 
+// we will use analog pin A1 to read the potentiometer
+//   leaves a little space between that and AREF
+// BE SURE TO CONNECT THE AREF PIN!!!
+// the potentiometer adjusts the desired car position (fine grain)
+#define ANLG_PIN 1
+
 // This tells the ultrasonic library that the trigger pin is on digital 13
 // This also tells the ultrasonic library that the echo pin is on digital 12
 #define ULTRA_TRIG_PIN 13
 #define ULTRA_ECHO_PIN 12
+
+
 // we use the range value from the Ultrasonic sensor to decide we are in one of
 //    ULTRA_REGION_NUM display ranges (or OFF)
 //    ranges are mapped to appropriate entry in led_ultra_range_mapping[] array
 #define ULTRA_REGION_NUM 6
-
-// we will use analog pin A0 to read the potentiometer
-// BE SURE TO CONNECT THE AREF PIN!!!
-// the potentiometer adjusts the desired car position (fine grain)
-#define ANLG_PIN 0
 
 // These are the definitions for our software hysteresis
 // the setup() routine initializes the interval_* arrays
