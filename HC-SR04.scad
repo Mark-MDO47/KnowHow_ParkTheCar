@@ -240,7 +240,7 @@ module box(totalheight, long, skinny, width) {
     }
 }
 
-// top(totalheight = plate_totl_height, plateslotheight = plate_slot_height, platelength=plate_totl_long, platewidth=plate_totl_skinny-1.5*w_slot_clearance);
+top(totalheight = plate_totl_height, plateslotheight = plate_slot_height, platelength=plate_totl_long, platewidth=plate_totl_skinny-w_slot_clearance);
 // box(totalheight = box_totl_height, long=box_totl_long, skinny=box_totl_skinny, width=wall_width);
-side(plateslotheight = plate_slot_height, platelength=plate_totl_long-1*(wall_width+0.1), platewidth=box_totl_height-1*(wall_width+0.1));
+// side(plateslotheight = plate_slot_height, platelength=plate_totl_long-1*(wall_width+0.1), platewidth=box_totl_height-1.5*(wall_width+0.1));
 
