@@ -246,7 +246,7 @@ void loop() {
   int ultra_dist=(ultrasonic.Ranging(CM));
   idx = calc_led_idx(pot_dist, ultra_dist);
   //Serial.println(idx);
-  // we want [0,ULTRA_REGION_NUM] currently [0-7] (note: enpoint inclusive
+  // we want [0,ULTRA_REGION_NUM] currently [0-7] (note: endpoint inclusive
   // see what region idx we are in - farthest away is smallest idx; idx=7 is LED OFF
 
 
